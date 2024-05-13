@@ -10,9 +10,9 @@ services:
 
     ports:
       - "8000:8000"
-    image: app:flight_booking_django
-    container_name: flight_booking_django
-    command: gunicorn flight_booking.wsgi:application -b 0.0.0.0:8000
+    image: app:health_blog_django
+    container_name: health_blog_django
+    command: gunicorn myproject.wsgi:application -b 0.0.0.0:8000
   
   nginx:
     build: ./nginx
@@ -23,8 +23,8 @@ services:
       - "80:80"
     depends_on:
       - django_app
-    image: app:flight_booking_nginx
-    container_name: flight_booking_nginx
+    image: app:health_blog_nginx
+    container_name: health_blog_nginx
   
 volumes:
     static_volume:
