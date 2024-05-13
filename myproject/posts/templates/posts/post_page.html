@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block title %} {{ post_page.title }}{% endblock %} 
+{% block content %}
+    <section class="postpage">
+    <article class="pagearticle">
+        <h2>{{ post_page.title }}</h2>
+        <p class="pagedate">{{ post_page.date }}  By <span class="post_page_author">{{post_page.author}}</span></p>
+        <img src="{{ post_page.banner.url }}" alt="{{ post_page.title }}">
+        <p >{{ post_page.body }}</p>
+    </article>
+    <div class="commentSection">
+
+        
+        <form action="{% url 'posts:new_comment' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="slug" id="slug" value="{{ post_page.slug }}">
+            <button>Add Comment</button>
+        </form>
+        <h3 class="allcomments">Comments</h3>
+        {% for comment in comments %}
+        <article class="eachcomment">
+            <p>
+                <span class="commentuser">@{{ comment.user }}</span><span class="commentdate">{{ comment.date }}</span>
+            </p>
+            <p class="commentbody">{{ comment.comment }}</p>
+        </article>
+        <br>
+        {% endfor %}
+        
+    </div>
+    </section>
+{% endblock %}

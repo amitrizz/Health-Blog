@@ -1,0 +1,9 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block content %}
+<section class="home">
+  <h1>Welcome To Our Health Blogs</h1>
+  <h2>Visit Our Blogs And give feedback On Them</h2>
+  <p>
+    To see our all blogs and give your time on blogs please...<a href="{% url 'posts:list' %}">Click Here</a>
+  </p>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'js/main.js' %}"></script>
+    <title>{% block title %}{% endblock %} </title>
+  </head>
+  <body>
+    <nav class="Navbar">
+      <div class="navlogo"><img src="{% static 'images/logo.png' %}" alt="logo"></div>
+      <ul class="navlink">
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url 'posts:list' %}">Posts</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'posts:new_post' %}">New Post</a></li>
+        <li> <a href="{% url 'posts:user_post' %}">Your Post</a></li>
+        <li><form class="logoutform" action="{% url "users:logout" %}" method="post">{% csrf_token %}<button>Logout</button></form></li>
+        {% else %}
+        <li><a href="{% url 'users:register' %}">Register</a></li>
+        <li><a href="{% url 'users:login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <main>{% block content %} {% endblock %}</main>
+    <footer></footer>
+  </body>
+</html>

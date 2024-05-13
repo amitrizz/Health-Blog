@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block title %} Post {% endblock %} {% block content %}
+<section class="post">
+  <div class="postheader">
+    <h1>Post</h1>
+    <form action="{% url 'posts:list' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="search" placeholder="Search Blog ...." />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="allpost">
+    {% for post in posts %}
+    <article class="postcard">
+      <h2>
+        <a href="{% url 'posts:post_page' slug=post.slug %}">
+          {{ post.title }}
+        </a>
+      </h2>
+      <p>Full Post ::=> {{ post.body }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

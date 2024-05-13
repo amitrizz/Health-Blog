@@ -1,0 +1,12 @@
+env
+myproject/media
+myproject/db.sqlite3
+
+myproject/posts/migrations
+myproject/users/migrations
+
+
+myproject/posts/__pycache__
+myproject/users/__pycache__
+
+myproject/myproject/__pycache__
