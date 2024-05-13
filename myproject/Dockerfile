@@ -17,4 +17,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt gunicorn
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*
 
-CMD ["/scripts/entrypoint.sh","gunicorn", "--bind", "0.0.0.0:8000", "flight_booking.wsgi:application"]
+CMD ["/scripts/entrypoint.sh","gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
