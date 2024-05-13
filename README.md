@@ -1,7 +1,7 @@
-py -m venv env
-.\env\Scripts\activate
-cd .\myproject\
-pip install -r .\requirements.txt
-py manage.py makemigrations
-py manage.py migrate
-py manage.py runserver
+py -m venv env  <br>
+.\env\Scripts\activate  <br>
+cd .\myproject\  <br>
+pip install -r .\requirements.txt  <br>
+py manage.py makemigrations  <br>
+py manage.py migrate  <br>
+py manage.py runserver  <br>
