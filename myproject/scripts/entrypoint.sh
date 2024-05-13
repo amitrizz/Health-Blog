@@ -11,9 +11,9 @@ python manage.py makemigrations posts users || { echo "Failed to make migrations
 echo "Applying migrations..."
 python manage.py migrate
 echo "Applying migrations for posts app..."
-python manage.py migrate posts || { echo "Failed to apply migrations for accounts app"; exit 1; }
+python manage.py migrate posts || { echo "Failed to apply migrations for posts app"; exit 1; }
 echo "Applying migrations for users app..."
-python manage.py migrate users || { echo "Failed to apply migrations for booking app"; exit 1; }
+python manage.py migrate users || { echo "Failed to apply migrations for users app"; exit 1; }
 
 echo "All migrations applied successfully."
 
