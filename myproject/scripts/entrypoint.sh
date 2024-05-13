@@ -5,8 +5,8 @@ python manage.py collectstatic --noinput || { echo "Failed to collect static fil
 
 echo "Making migrations..."
 python manage.py makemigrations
-python manage.py makemigrations posts users || { echo "Failed to make migrations"; exit 1; }
-
+python manage.py makemigrations posts || { echo "Failed to make migrations"; exit 1; }
+python manage.py makemigrations users || { echo "Failed to make migrations"; exit 1; }
 
 echo "Applying migrations..."
 python manage.py migrate
