@@ -122,11 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR, "static/")
-MEDIA_URL = os.path.join(BASE_DIR, "media/")
+STATIC_URL = "/static/"   # this will server in local system
+MEDIA_URL =   "/media/"
+
 if env('ENV') == "production":
+    STATIC_URL = os.path.join(BASE_DIR, "static/")   #this url will server in web server system
+    MEDIA_URL = os.path.join(BASE_DIR, "media/")
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
 else:
+    
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
